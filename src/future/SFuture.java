@@ -16,14 +16,13 @@ public class SFuture {
 	 * @throws InterruptedException 
 	 * @throws TimeoutException 
 	 */
-	@SuppressWarnings("static-access")
 	public static void main(String[] args) throws InterruptedException, ExecutionException, TimeoutException {
 //		FutureTask<Long> futureTask = new FutureTask<>(getCallable());
 		ExecutorService executorService = Executors.newFixedThreadPool(3);
 		Future<Long> future = executorService.submit(getCallable(1,22));
 		
-		System.out.print("Now time is: "+ future.get(2, TimeUnit.SECONDS));
-		
+		System.out.println("Now time is: "+ future.get(2, TimeUnit.SECONDS));
+		System.out.println("Now time is: "+ future.get(2, TimeUnit.SECONDS));
 //		boolean wait = true;
 //		while (wait) {
 //			if (future.isDone()) {
@@ -41,7 +40,6 @@ public class SFuture {
 	
 	private static Callable<Long> getCallable(final int begin, final int end){
 		Callable<Long> callable = new Callable<Long>() {
-			@SuppressWarnings("static-access")
 			@Override
 			public Long call() throws Exception {
 //				Thread.currentThread().sleep(3000);
